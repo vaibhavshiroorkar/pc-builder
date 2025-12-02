@@ -1,3 +1,3 @@
 # pc-builder
 
-A PC Building Website which consists of everything
+Ease of use PC Building Website
