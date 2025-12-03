@@ -241,5 +241,10 @@ app.delete('/api/saved-builds/:id', authMiddleware, async (req, res) => {
   res.json({ ok: true })
 })
 
+// Export the app for Vercel serverless
+export default app;
 
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+// Only start server if not in serverless environment
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+}
