@@ -1,16 +1,10 @@
 {
   "buildCommand": "npm install && npm run build",
   "outputDirectory": "dist",
-  "functions": {
-    "backend/server.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/backend/server.js"
+      "destination": "/api"
     }
   ]
 }
