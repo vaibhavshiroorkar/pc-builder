@@ -11,22 +11,35 @@ import { AuthNav } from './components/AuthNav.jsx'
 
 function NavBar() {
   const { theme, toggle } = useTheme()
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen)
+  const closeMobileMenu = () => setMobileMenuOpen(false)
+  
   return (
     <nav className="navbar">
       <div className="container">
-        <Link to="/" className="brand-logo">PCease 🖥️</Link>
-        <ul className="nav-links">
-          <li><NavLink to="/browse" className={({isActive})=> 'nav-link'+(isActive?' active':'')}>Browse Components</NavLink></li>
-          <li><NavLink to="/builder" className={({isActive})=> 'nav-link'+(isActive?' active':'')}>PC Builder</NavLink></li>
-          <li><NavLink to="/query" className={({isActive})=> 'nav-link'+(isActive?' active':'')}>Build Advisor</NavLink></li>
-          <li><NavLink to="/forum" className={({isActive})=> 'nav-link'+(isActive?' active':'')}>Forum</NavLink></li>
+        <Link to="/" className="brand-logo" onClick={closeMobileMenu}>PCease 🖥️</Link>
+        <button 
+          className="mobile-menu-toggle" 
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          {mobileMenuOpen ? '✕' : '☰'}
+        </button>
+        <ul className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+          <li><NavLink to="/browse" className={({isActive})=> 'nav-link'+(isActive?' active':'')} onClick={closeMobileMenu}>Browse Components</NavLink></li>
+          <li><NavLink to="/builder" className={({isActive})=> 'nav-link'+(isActive?' active':'')} onClick={closeMobileMenu}>PC Builder</NavLink></li>
+          <li><NavLink to="/query" className={({isActive})=> 'nav-link'+(isActive?' active':'')} onClick={closeMobileMenu}>Build Advisor</NavLink></li>
+          <li><NavLink to="/forum" className={({isActive})=> 'nav-link'+(isActive?' active':'')} onClick={closeMobileMenu}>Forum</NavLink></li>
           <li>
             <button id="theme-toggle" className="theme-toggle-btn" type="button" aria-pressed={theme==='dark'} title="Toggle dark mode" onClick={toggle}>
               <span className="theme-icon">{theme==='dark' ? '☀️' : '🌙'}</span>
               <span className="theme-text">{theme==='dark' ? 'Light' : 'Dark'}</span>
             </button>
           </li>
-          <li><AuthNav /></li>
+          <li><AuthNav onNavigate={closeMobileMenu} /></li>
         </ul>
       </div>
     </nav>

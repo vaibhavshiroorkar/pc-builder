@@ -72,4 +72,70 @@
 .clear-build-btn{width:100%;margin-top:12px;padding:12px;border:2px solid var(--border);background:var(--surface);color:var(--text);border-radius:6px;cursor:pointer;font-weight:600}
 .clear-build-btn:hover{background:var(--danger);color:#fff;border-color:var(--danger)}
 @media (max-width:1024px){.main-content{flex-direction:column}.current-build{position:static;order:2}}
-@media (max-width:768px){.modal-content{width:95%;max-height:90vh;padding:20px}.component-slot{flex-direction:column;align-items:flex-start;gap:12px}.component-slot button{width:100%}.navbar .container{flex-direction:column;gap:12px}.nav-links{flex-direction:column;gap:8px}}
+@media (max-width:768px){
+	.modal-content{width:95%;max-height:90vh;padding:20px}
+	.component-slot{flex-direction:column;align-items:flex-start;gap:12px}
+	.component-slot button{width:100%}
+	
+	.component-picker { padding: var(--space-md); }
+	.builder-toolbar { gap: 6px; }
+	.toolbar-btn { padding: 6px 10px; font-size: 0.85rem; flex: 1 1 auto; justify-content: center; }
+	
+	.build-stats { flex-direction: column; gap: var(--space-sm); }
+	.stat-item { flex-direction: row; justify-content: space-between; align-items: center; padding: var(--space-sm); background: var(--surface); border-radius: 6px; }
+	.stat-label { margin: 0; }
+	.stat-value { text-align: right; }
+	
+	.compatibility-warnings { margin: 12px 0; }
+	.warning-item, .info-item { padding: 10px 12px; font-size: 0.85rem; }
+	
+	.component-slot { padding: 14px; margin-bottom: 12px; }
+	.component-slot-info h3 { font-size: 1rem; }
+	.component-slot-info p { font-size: 0.85rem; }
+	.component-slot button { padding: 10px 16px; font-size: 0.9rem; }
+	
+	.current-build { padding: var(--space-md); top: 0; }
+	.selected-item { padding: 10px 0; flex-wrap: wrap; }
+	.selected-item strong { font-size: 0.85rem; width: 100%; }
+	.remove-item-btn { font-size: 1.1rem; }
+	
+	.saved-builds-list { gap: 6px; }
+	.saved-build-item { padding: 8px; flex-direction: column; align-items: flex-start; }
+	.saved-build-meta { width: 100%; }
+	.saved-build-name { max-width: 100%; }
+	.saved-build-actions { width: 100%; justify-content: flex-start; }
+	
+	.modal-header h2 { font-size: 1.15rem; }
+	.component-card { flex-direction: column; align-items: flex-start; padding: 12px; gap: 8px; }
+	.component-card h4 { font-size: 0.95rem; }
+	.component-card strong { font-size: 1rem; }
+	
+	.vendor-list { margin: 0 -8px; }
+	.vendor-item { flex-direction: column; align-items: flex-start; padding: 10px 8px; gap: 8px; }
+	.vendor-info { width: 100%; justify-content: space-between; }
+	.vendor-link { padding: 6px 12px; font-size: 0.85rem; }
+}
+
+@media (max-width:480px){
+	.container { padding: 0 var(--space-sm); }
+	.main-content { gap: var(--space-md); margin-top: var(--space-md); }
+	
+	.component-picker { padding: var(--space-sm); }
+	.builder-toolbar { flex-wrap: wrap; }
+	.toolbar-btn { font-size: 0.8rem; padding: 6px 8px; white-space: nowrap; }
+	
+	.component-slot { padding: 12px; }
+	.component-slot-info h3 { font-size: 0.95rem; }
+	
+	.current-build { padding: var(--space-sm); }
+	.total-price h3 { font-size: 1.2rem; }
+	
+	.modal-content { width: 100%; max-width: 100%; border-radius: 0; max-height: 100vh; padding: 12px; }
+	.modal-container { padding: 0; }
+	.modal-header { padding-bottom: 10px; margin-bottom: 10px; }
+	.modal-close-btn, .modal-back-btn { width: 32px; height: 32px; font-size: 1.3rem; }
+	
+	.component-card { padding: 10px; }
+	.detail-view-footer { margin-top: 12px; padding-top: 12px; }
+	.add-to-build-btn { width: 100%; padding: 10px 16px; font-size: 0.95rem; }
+}

@@ -67,6 +67,53 @@
 	.modal-body.two-col{grid-template-columns:1fr}
 }
 
+/* Mobile Responsive Improvements */
+@media (max-width: 768px) {
+	.controls .row { flex-direction: column; }
+	.control-input, .control-select, .control-number { width: 100%; }
+	.filters { width: 100%; flex-direction: column; align-items: stretch; }
+	.filters .price { width: 100%; justify-content: space-between; }
+	.clear { width: 100%; }
+	
+	.grid { grid-template-columns: 1fr; gap: var(--space-md); }
+	
+	.card { padding: 16px; }
+	.card-top { flex-wrap: wrap; gap: 8px; }
+	.icons { order: 3; width: 100%; justify-content: flex-end; }
+	
+	.modal-content { width: 100%; max-width: 100%; border-radius: 0; max-height: 100vh; padding: 16px; }
+	.modal-container { padding: 0; }
+	
+	.toolbar { flex-wrap: wrap; justify-content: center; }
+	.toolbar-btn { flex: 1; min-width: 140px; justify-content: center; }
+	
+	.vendor-item { grid-template-columns: 1fr; gap: 8px; text-align: left; }
+	.vendor-link { white-space: normal; }
+	.vendor-price { text-align: left; }
+	
+	.page-header h1 { font-size: 1.75rem; }
+	.page-header p { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+	.container { padding: 12px; }
+	.controls { padding: 10px; }
+	.chips { gap: 6px; }
+	.chip { padding: 5px 10px; font-size: 0.85rem; }
+	
+	.card { padding: 12px; }
+	.title { font-size: 0.95rem; }
+	.badge { font-size: 0.65rem; }
+	.icon { width: 28px; height: 28px; font-size: 0.9rem; }
+	
+	.btn { padding: 6px 10px; font-size: 0.85rem; }
+	
+	.modal-header h2 { font-size: 1.1rem; }
+	.toolbar-row { margin: 8px 0; }
+	.toolbar { gap: 8px; }
+	.toolbar-btn { padding: 8px 12px; font-size: 0.9rem; min-width: 120px; }
+}
+
 /* Toolbar centered under header */
 .toolbar-row{display:flex;justify-content:center;margin:12px 0}
 .toolbar{display:flex;gap:12px;align-items:center}
