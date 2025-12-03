@@ -1,81 +1,220 @@
-# PCease (React SPA)
+# 🖥️ PCease - PC Builder & Community Platform
 
-A faithful React migration of the original PCease static site with pixel/behavior parity.
+> Your all-in-one solution for building the perfect PC. Browse components, get expert recommendations, and connect with the community.
 
-🚀 **Live Demo**: [https://pcease.vercel.app/](https://pcease.vercel.app/)
+🚀 **[Live Demo](https://pcease.vercel.app/)** | 💻 **[GitHub Repository](https://github.com/vaibhavshiroorkar/pc-builder)**
 
-## Quick start
+---
 
-Prereqs: Node 18+ and npm. For backend API: MongoDB (local or Atlas) and a JWT secret.
+## ✨ Features
 
-- Frontend (Vite React):
+### 🔍 **Browse Components**
+Explore a comprehensive database of PC components including CPUs, GPUs, motherboards, RAM, storage, and more. Filter by brand, specs, and price to find exactly what you need.
 
-  - Install deps: `npm install`
-  - Start dev server: `npm run dev` (http://localhost:5173)
-  - Build for prod: `npm run build`
-  - Preview production build: `npm run preview`
+### 🛠️ **PC Builder**
+- **Drag-and-drop interface** for easy build creation
+- **Compatibility checking** to ensure all parts work together
+- **Price tracking** across multiple vendors
+- **Save & share** your builds with base64 encoded URLs
+- **Load saved builds** and modify them anytime
 
-- Backend (Express + Mongo):
-  - cd backend; `npm install`
-  - Create `backend/.env`:
-    - `MONGO_URI=mongodb://127.0.0.1:27017/pcease` (or your Atlas URI)
-    - `JWT_SECRET=replace-with-a-dev-secret`
-    - `PORT=5000` (optional)
-  - Start API: `npm start` (http://localhost:5000)
+### 🤖 **Build Advisor**
+Get AI-powered recommendations based on your use case:
+- Gaming builds (1080p, 1440p, 4K)
+- Workstation setups for content creation
+- Budget-friendly options
+- High-performance configurations
 
-### Seed initial component data (optional)
+### 💬 **Community Forum**
+- Create discussion threads
+- Share build ideas and get feedback
+- Ask questions and help others
+- Category-based organization
 
-The app now reads components from MongoDB via the backend API. If you need to (re)seed:
+### 🎨 **Theme Toggle**
+Switch between light and dark modes for comfortable browsing at any time.
 
-- From project root: `npm --prefix backend run seed`
-- The script will use `backend/scripts/components-seed.json` if present. If no seed file is found it will simply skip.
+### 🔐 **User Authentication**
+Secure login and registration system with JWT tokens to save your builds and forum activity.
 
-Dev servers:
+---
 
-- Frontend: http://localhost:5173/
-- API: http://localhost:5000/
+## 🚀 Tech Stack
 
-## Routes
+### **Frontend**
+- ⚛️ **React 18** - Modern UI library
+- ⚡ **Vite** - Lightning-fast build tool
+- 🎨 **Custom CSS** - Responsive design with theme support
+- 🛣️ **React Router** - Client-side routing
 
-- / — Home
-- /browse — Browse Components
-- /builder — PC Builder (import via ?build=<base64>)
-- /query — Build Advisor (open result in Builder)
-- /forum — Local forum (localStorage)
-- /login — Login/Register (localStorage-backed)
+### **Backend**
+- 🟢 **Express.js** - RESTful API server
+- 🍃 **MongoDB** - NoSQL database for components and user data
+- 🔒 **JWT** - Secure authentication
+- 🌐 **CORS** - Cross-origin resource sharing
 
-## Notes
+### **Deployment**
+- ☁️ **Vercel** - Serverless functions and static hosting
+- 🗄️ **MongoDB Atlas** - Cloud database
+- 🔄 **CI/CD** - Automatic deployments from GitHub
 
-- **Deployment**: Hosted on Vercel with serverless API functions
-- Styling: Original CSS copied verbatim per page under src/styles to preserve look and feel.
-- Theme: useTheme hook mirrors original data-theme behavior; toggle in header.
-- Auth: Login/Register routed via backend API (`/api/register`, `/api/login`).
-- Data: Components served by backend API (`/api/components`) from MongoDB Atlas.
-- Share/import: Builder accepts base64-encoded JSON in `?build=` param.
+---
 
-## Production Deployment
+## 🛠️ Getting Started
 
-Deployed on Vercel with:
-- Frontend: Static Vite build served from `/dist`
-- Backend: Serverless functions in `/api` directory
-- Database: MongoDB Atlas
+### Prerequisites
+- Node.js 18+ and npm
+- MongoDB (local or Atlas account)
 
-Environment variables (configured in Vercel):
-- `MONGO_URI` - MongoDB Atlas connection string
-- `JWT_SECRET` - Secret key for JWT token generation
-- `FRONTEND_URL` - Vercel deployment URL for CORS
+### Installation
 
-## Folder structure
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/vaibhavshiroorkar/pc-builder.git
+   cd pc-builder
+   ```
 
-- src/App.jsx — Router + layout (NavBar, Footer)
-- src/pages/\* — Ported pages
-- src/styles/\* — Original page CSS
-- src/lib/auth.js — Auth utilities
-- src/lib/theme.js — Theme hook
+2. **Install frontend dependencies**
+   ```bash
+   npm install
+   ```
 
-## Parity checks
+3. **Install backend dependencies**
+   ```bash
+   cd backend
+   npm install
+   ```
 
-- UI matches original pages (using original CSS classes/structure)
-- Behavior parity for: theme toggle, auth, forum threads, browse filters/modal, builder compatibility and save/load/share, advisor presets and recommendations
+4. **Set up environment variables**
+   
+   Create `backend/.env`:
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_secure_jwt_secret
+   PORT=5000
+   FRONTEND_URL=http://localhost:5173
+   ```
 
-If anything looks off, please file an issue or tweak the corresponding page JSX while keeping classes intact.
+5. **Seed the database (optional)**
+   ```bash
+   npm --prefix backend run seed
+   ```
+
+6. **Run development servers**
+   
+   Terminal 1 - Backend:
+   ```bash
+   cd backend
+   npm start
+   ```
+   
+   Terminal 2 - Frontend:
+   ```bash
+   npm run dev
+   ```
+
+7. **Open your browser**
+   - Frontend: [http://localhost:5173](http://localhost:5173)
+   - API: [http://localhost:5000](http://localhost:5000)
+
+---
+
+## 📁 Project Structure
+
+```
+pc-builder/
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── pages/          # Route pages (Home, Browse, Builder, etc.)
+│   ├── lib/            # Utilities (auth, theme)
+│   ├── shared/         # Shared logic (API client)
+│   └── styles/         # Page-specific CSS
+├── backend/
+│   ├── app.js          # Express server setup
+│   ├── scripts/        # Database seeding scripts
+│   └── .env            # Environment variables (not in git)
+├── api/
+│   └── index.js        # Vercel serverless function
+└── dist/               # Production build (generated)
+```
+
+---
+
+## 🌐 API Endpoints
+
+### **Authentication**
+- `POST /api/register` - Create new user account
+- `POST /api/login` - Login and receive JWT token
+
+### **Components**
+- `GET /api/components` - List all components
+- `GET /api/components?category=cpu` - Filter by category
+- `POST /api/components` - Add new component (admin)
+
+### **Forum**
+- `GET /api/threads` - List all threads
+- `POST /api/threads` - Create new thread (auth required)
+- `GET /api/threads/:id` - Get thread with replies
+- `POST /api/threads/:id/replies` - Add reply (auth required)
+- `DELETE /api/threads/:id` - Delete thread (auth required)
+
+### **Saved Builds**
+- `GET /api/saved-builds` - Get user's saved builds (auth required)
+- `POST /api/saved-builds` - Save a new build (auth required)
+- `PUT /api/saved-builds/:id` - Update build (auth required)
+- `DELETE /api/saved-builds/:id` - Delete build (auth required)
+
+---
+
+## 🚀 Deployment
+
+The app is deployed on Vercel with the following configuration:
+
+1. **Push to GitHub** - Automatic deployment triggers
+2. **Environment Variables** - Set in Vercel Dashboard:
+   - `MONGO_URI`
+   - `JWT_SECRET`
+   - `FRONTEND_URL`
+3. **Build Settings**:
+   - Build Command: `node node_modules/vite/bin/vite.js build`
+   - Output Directory: `dist`
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 👨‍💻 Author
+
+**Vaibhav Shiroorkar**
+- GitHub: [@vaibhavshiroorkar](https://github.com/vaibhavshiroorkar)
+- Project: [PCease](https://pcease.vercel.app)
+
+---
+
+## 🙏 Acknowledgments
+
+- Component data sourced from various retailers
+- Built with modern web technologies and best practices
+- Deployed on Vercel's amazing platform
+
+---
+
+<div align="center">
+  <strong>⭐ Star this repo if you found it helpful! ⭐</strong>
+</div>
