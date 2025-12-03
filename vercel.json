@@ -1,25 +1,16 @@
 {
-  "version": 2,
   "buildCommand": "npm install && npm run build",
   "outputDirectory": "dist",
-  "builds": [
-    {
-      "src": "backend/server.js",
-      "use": "@vercel/node"
+  "functions": {
+    "backend/server.js": {
+      "memory": 1024,
+      "maxDuration": 10
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "backend/server.js"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/api/(.*)",
+      "destination": "/backend/server.js"
     }
   ]
 }
