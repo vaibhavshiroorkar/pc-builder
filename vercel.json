@@ -1,7 +1,7 @@
 {
   "version": 2,
   "buildCommand": "npm install && npm run build",
-  "installCommand": "npm install",
+  "outputDirectory": "dist",
   "builds": [
     {
       "src": "backend/server.js",
@@ -12,6 +12,10 @@
     {
       "src": "/api/(.*)",
       "dest": "backend/server.js"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
     },
     {
       "src": "/(.*)",
