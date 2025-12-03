@@ -1,8 +1,8 @@
 # 🖥️ PCease - PC Builder & Community Platform
 
-> Your all-in-one solution for building the perfect PC. Browse components, get expert recommendations, and connect with the community.
+Your all-in-one solution for building the perfect PC. Browse components, get expert recommendations, and connect with the community.
 
-🚀 **[Live Demo](https://pcease.vercel.app/)** | 💻 **[GitHub Repository](https://github.com/vaibhavshiroorkar/pc-builder)**
+🚀 **Live Demo: https://pcease.vercel.app** 
 
 ---
 
@@ -203,6 +203,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Vaibhav Shiroorkar**
 - GitHub: [@vaibhavshiroorkar](https://github.com/vaibhavshiroorkar)
+- GitHub: [@adithyajithesh](https://github.com/adithyajithesh)
 - Project: [PCease](https://pcease.vercel.app)
 
 ---
