@@ -2,6 +2,8 @@
 
 A faithful React migration of the original PCease static site with pixel/behavior parity.
 
+🚀 **Live Demo**: [https://pcease.vercel.app/](https://pcease.vercel.app/)
+
 ## Quick start
 
 Prereqs: Node 18+ and npm. For backend API: MongoDB (local or Atlas) and a JWT secret.
@@ -44,11 +46,24 @@ Dev servers:
 
 ## Notes
 
+- **Deployment**: Hosted on Vercel with serverless API functions
 - Styling: Original CSS copied verbatim per page under src/styles to preserve look and feel.
 - Theme: useTheme hook mirrors original data-theme behavior; toggle in header.
 - Auth: Login/Register routed via backend API (`/api/register`, `/api/login`).
-- Data: Components served by backend API (`/api/components`) from MongoDB.
+- Data: Components served by backend API (`/api/components`) from MongoDB Atlas.
 - Share/import: Builder accepts base64-encoded JSON in `?build=` param.
+
+## Production Deployment
+
+Deployed on Vercel with:
+- Frontend: Static Vite build served from `/dist`
+- Backend: Serverless functions in `/api` directory
+- Database: MongoDB Atlas
+
+Environment variables (configured in Vercel):
+- `MONGO_URI` - MongoDB Atlas connection string
+- `JWT_SECRET` - Secret key for JWT token generation
+- `FRONTEND_URL` - Vercel deployment URL for CORS
 
 ## Folder structure
 
